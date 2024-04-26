@@ -1,0 +1,78 @@
+= Set up a UI Project
+:GersonRS-project-name: antora-ui
+:GersonRS-url-project: git@github.com:GersonRS/{GersonRS-project-name}.git
+:url-c2c-project: https://gitlab.com/GersonRS/{GersonRS-project-name}.git
+:url-project: https://gitlab.com/antora/antora-ui-default.git
+
+Before you can start working on the UI, you need to grab the sources and initialize the project.
+The sources can be {url-c2c-project}[Antora's GersonRS UI] or an existing UI project structured to work with Antora.
+
+== Fetch the UI project
+
+To start, clone the UI project using git. To maintain this repository up-to-date with the upstream, please clone the UI project following this procedure:
+
+Clone the project::
+[source,bash,subs=attributes+]
+$ git clone {GersonRS-url-project} && cd "{GersonRS-project-name}"
+$ git remote -v
+$ git remote add upstream {url-project}
+$ git remote -v
+
+Create a local branch synced with the original repository::
+[source,bash,subs=attributes+]
+$ git fetch upstream
+$ git checkout -b upstream_master upstream/master
+
+Syncronize local branch with upstream::
+[source,bash,subs=attributes+]
+$ git checkout upstream_master
+$ git pull
+$ git checkout my-branch
+$ git pull
+$ git rebase upstream_master
+
+CAUTION: Stay in this project folder in order to initialize the project using npm.
+
+== Install dependencies
+
+Next, you'll need to initialize the project.
+Initializing the project essentially means downloading and installing the dependencies into the project.
+That's the job of npm.
+
+In your terminal, execute the following command (while inside the project folder):
+
+ $ npm install
+
+This command installs the dependencies listed in [.path]_package.json_ into the [.path]_node_modules/_ folder inside the project.
+This folder does not get included in the UI bundle.
+The folder is safe to delete, though npm does a great job of managing it.
+
+You'll notice another file which seems to be relevant here, [.path]_package-lock.json_.
+npm uses this file to determine which concrete version of a dependency to use, since versions in [.path]_package.json_ are typically just a range.
+The information in this file makes the build reproducible across different machines and runs.
+
+If a new dependency must be resolved that isn't yet listed in [.path]_package-lock.json_, npm will update this file with the new information when you run `npm install`.
+Therefore, you're advised to commit the [.path]_package-lock.json_ file into the repository whenever it changes.
+
+== Supported build tasks
+
+Now that the dependencies are installed, you should be able to run the `gulp` command to find out what tasks the build supports:
+
+ $ gulp --tasks-simple
+
+You should see:
+
+[.output]
+....
+default
+clean
+lint
+format
+build
+bundle
+bundle:pack
+preview
+preview:build
+....
+
+We'll explain what each of these tasks are for and when to use them.

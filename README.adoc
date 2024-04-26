@@ -1,0 +1,59 @@
+= Antora UI for GersonRS
+// Settings:
+:experimental:
+:hide-uri-scheme:
+// Project URLs:
+:GersonRS-project-name: modern-gitops-stack-antora-ui
+:GersonRS-url-project-ssh: git@github.com:GersonRS/{GersonRS-project-name}.git
+:GersonRS-url-project-https: https://github.com/GersonRS/{GersonRS-project-name}
+:url-project: https://gitlab.com/antora/antora-ui-default
+:url-preview: https://antora.gitlab.io/antora-ui-default
+:url-ci-pipelines: {url-project}/pipelines
+:img-ci-status: {url-project}/badges/master/pipeline.svg
+
+This repository is based and forked from the {url-project}[Antora default UI].
+
+The reason for this fork is so we could apply the following modifications:
+
+- customize the UI with the DevOps Stack logo, favicon and hyperlink to its website and repository, as well as to GersonRS's website;
+- add support for Terraform syntax highlighting by adding this https://github.com/highlightjs/highlightjs-terraform[extension] of https://www.npmjs.com/package/highlight.js[highlight.js] (see https://highlightjs.readthedocs.io/en/latest/supported-languages.html[here] the supported languages);
+- provide more readable colors for the syntax highlighting by adding a link:./src/css/stackoverflow-colors.css[custom CSS file] with the same colors used by Stack Overflow (although the https://highlightjs.org/download/[packaged prebuilt version of `highlight.js`] is not directly usable by this UI project, however we can get the Stack Overflow CSS style from the multiple CSS styles contained there);
+
+== Usage
+
+In order to use this UI, we simply create a `*.zip` bundle with a GitHub Actions workflow that is then pointed to by our `antora-playbook.yaml` available https://github.com/GersonRS/modern-gitops-stack/blob/master/antora-playbook.yml[here].
+
+If it the first time you touch on this project, clone it using the following procedure. This will allow you to maintain this repository up-to-date with the upstream project.
+
+[source,bash,subs=attributes+]
+----
+git clone {GersonRS-url-project-ssh} && cd "{GersonRS-project-name}"
+git remote -v
+git remote add upstream {url-project}
+git remote -v
+----
+
+Create a local branch synced with the original repository (you only need to do this once).
+
+[source,bash,subs=attributes+]
+----
+git fetch upstream
+git checkout -b upstream_master upstream/master
+git pull
+----
+
+Create you local branch synchronized with upstream.
+
+[source,bash,subs=attributes+]
+----
+git checkout -b my-branch main
+git merge upstream_master
+----
+
+IMPORTANT: When merging, you may have some conflicts. You will need to resolve them manually, *but take caution not to erase some of our customizations, otherwise you probably can safely accept the incoming changes.
+
+After all this, you can open a Pull Request from you branch.
+
+== `README.adoc` from the forked project
+
+The original `README.adoc` is available https://gitlab.com/antora/antora-ui-default/-/blob/master/README.adoc[here]. It contains the Code of Conduct of the project along with some other useful information.
