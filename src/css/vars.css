@@ -1,31 +1,50 @@
 :root {
+
+  /** CSS DARK THEME PRIMARY COLORS */
+  --color-primary-100: #64ffda;
+  --color-primary-200: #7dffde;
+  --color-primary-300: #91ffe2;
+  --color-primary-400: #a4ffe6;
+  --color-primary-500: #b5ffea;
+  --color-primary-600: #c5ffee;
+  /** CSS DARK THEME SURFACE COLORS */
+  --color-surface-100: #0a192f;
+  --color-surface-200: #232e43;
+  --color-surface-300: #3b4458;
+  --color-surface-400: #555c6e;
+  --color-surface-500: #6f7585;
+  --color-surface-600: #8a8f9c;
   /* colors */
-  --color-white: #fff;
-  --color-smoke-10: #fefefe;
-  --color-smoke-30: #fafafa;
-  --color-smoke-50: #f5f5f5;
-  --color-smoke-70: #f0f0f0;
-  --color-smoke-90: #e1e1e1;
-  --color-gray-10: #c1c1c1;
-  --color-gray-30: #9c9c9c;
-  --color-gray-40: #8e8e8e;
-  --color-gray-50: #808080;
-  --color-gray-70: #5d5d5d;
-  --color-jet-20: #4a4a4a;
-  --color-jet-30: #424242;
-  --color-jet-50: #333;
-  --color-jet-70: #222;
-  --color-jet-80: #191919;
-  --color-black: #000;
+  --color-white: var(--color-surface-100);
+  --color-smoke-10: #000;
+  --color-smoke-30: #191919;
+  --color-smoke-50: #222;
+  --color-smoke-70: #333;
+  --color-smoke-90: #424242;
+  --color-gray-10: #4a4a4a;
+  --color-gray-30: #5d5d5d;
+  --color-gray-40: #808080;
+  --color-gray-50: #8e8e8e;
+  --color-gray-70: #9c9c9c;
+  --color-jet-20: #c1c1c1;
+  --color-jet-30: #e1e1e1;
+  --color-jet-50: #f0f0f0;
+  --color-jet-70: #f5f5f5;
+  --color-jet-80: #fafafa;
+  --color-black: #fefefe;
   /* modern gitops stack blue */
-  --color-background: #4177e8;
+  --color-background: var(--color-surface-100);
   /* modern gitops stack blue */
-  --color-hover-background: #4177e8;
+  --color-hover-background: var(--color-surface-200);
   /* fonts */
-  --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
-  --body-font-size: 1.0625em; /* 17px */
-  --body-font-size--desktop: 1.125em; /* 18px */
-  --body-font-size--print: 0.9375em; /* 15px */
+  --rem-base: 18;
+  /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
+  --body-font-size: 1.0625em;
+  /* 17px */
+  --body-font-size--desktop: 1.125em;
+  /* 18px */
+  --body-font-size--print: 0.9375em;
+  /* 15px */
   --body-line-height: 1.15;
   --body-font-color: var(--color-jet-70);
   --body-font-family: "Roboto", sans-serif;
@@ -34,32 +53,32 @@
   --monospace-font-weight-bold: 500;
   /* base */
   --body-background: var(--color-white);
-  --panel-background: var(--color-smoke-30);
+  --panel-background: var(--color-surface-200);
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-track-color: var(--color-smoke-30);
   --scrollbar-thumb-color: var(--color-gray-10);
   --scrollbar_hover-thumb-color: var(--color-gray-30);
   /* navbar */
   --navbar-background: var(--color-background);
-  --navbar-font-color: var(--color-white);
-  --navbar_hover-background: var(--color-hover-background);
+  --navbar-font-color: var(--color-primary-100);
+  --navbar_hover-background: var(--color-surface-200);
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
   --navbar-menu-border-color: var(--panel-border-color);
   --navbar-menu-background: var(--color-white);
   --navbar-menu-font-color: var(--body-font-color);
-  --navbar-menu_hover-background: var(--color-smoke-50);
+  --navbar-menu_hover-background: red;
   /* nav */
-  --nav-background: var(--panel-background);
+  --nav-background: var(--color-surface-100);
   --nav-border-color: var(--color-gray-10);
   --nav-line-height: 1.35;
   --nav-heading-font-color: var(--color-jet-30);
   --nav-muted-color: var(--color-gray-70);
   --nav-panel-divider-color: var(--color-smoke-90);
-  --nav-secondary-background: var(--color-smoke-70);
+  --nav-secondary-background: var(--color-surface-200);
   /* toolbar */
-  --toolbar-background: var(--panel-background);
+  --toolbar-background: var(--color-surface-100);
   --toolbar-border-color: var(--panel-border-color);
   --toolbar-font-color: var(--color-gray-70);
   --toolbar-muted-color: var(--color-gray-40);
@@ -87,8 +106,8 @@
   --heading-font-weight: normal;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #1565c0;
-  --link_hover-font-color: #104d92;
+  --link-font-color: #64ffda;
+  --link_hover-font-color: #00b187;
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
@@ -141,7 +160,7 @@
   --toc-width: calc(180 / var(--rem-base) * 1rem);
   --toc-width--widescreen: calc(270 / var(--rem-base) * 1rem);
   --doc-max-width: calc(900 / var(--rem-base) * 1rem);
-  --doc-max-width--desktop: calc(1260 / var(--rem-base) * 1rem);
+  --doc-max-width--desktop: calc(1960 / var(--rem-base) * 1rem);
   /* stacking */
   --z-index-nav: 1;
   --z-index-toolbar: 2;
