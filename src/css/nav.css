@@ -51,7 +51,7 @@
 }
 
 .nav a {
-  color: inherit;
+  color: var(--color-primary-100);
 }
 
 .nav .panels {
@@ -106,7 +106,7 @@ html.is-clipped--nav {
   padding: 0;
 }
 
-.nav-menu > .nav-list + .nav-list {
+.nav-menu>.nav-list+.nav-list {
   margin-top: 0.5rem;
 }
 
@@ -115,17 +115,17 @@ html.is-clipped--nav {
 }
 
 /* adds some breathing room below a nested list */
-.nav-item-toggle ~ .nav-list {
+.nav-item-toggle~.nav-list {
   padding-bottom: 0.125rem;
 }
 
 /* matches list without a title */
-.nav-item[data-depth="0"] > .nav-list:first-child {
+.nav-item[data-depth="0"]>.nav-list:first-child {
   display: block;
   margin: 0;
 }
 
-.nav-item:not(.is-active) > .nav-list {
+.nav-item:not(.is-active)>.nav-list {
   display: none;
 }
 
@@ -142,12 +142,12 @@ html.is-clipped--nav {
   margin-left: calc(var(--nav-line-height) * -1em);
 }
 
-.nav-item.is-active > .nav-item-toggle {
+.nav-item.is-active>.nav-item-toggle {
   transform: rotate(90deg);
 }
 
-.is-current-page > .nav-link,
-.is-current-page > .nav-text {
+.is-current-page>.nav-link,
+.is-current-page>.nav-text {
   font-weight: var(--body-font-weight-bold);
 }
 
@@ -217,7 +217,7 @@ html.is-clipped--nav {
   display: block;
 }
 
-.nav-panel-explore .component + .component {
+.nav-panel-explore .component+.component {
   margin-top: 0.5rem;
 }
 

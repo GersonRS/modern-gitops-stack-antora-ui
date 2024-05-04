@@ -41,7 +41,7 @@
 
 .home-link {
   display: block;
-  background: url(../img/favicon.png) no-repeat 50% 45%;
+  background: url(../img/favicon.ico) no-repeat 50% 45%;
   background-size: 50%;
   height: calc(var(--toolbar-height) / 2);
   width: calc(var(--toolbar-height) / 2);
@@ -50,7 +50,7 @@
 
 .home-link:hover,
 .home-link.is-current {
-  background-image: url(../img/favicon.png);
+  background-image: url(../img/favicon.ico);
 }
 
 .edit-this-page {
